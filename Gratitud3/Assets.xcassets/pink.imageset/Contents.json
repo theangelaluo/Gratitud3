@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "187-1877300_wallpaper-blue-gradient-pink-linear-light-pink-sky.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
