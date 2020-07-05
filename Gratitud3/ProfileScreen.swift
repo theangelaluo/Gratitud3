@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileScreen: UIViewController {
     
+    let items = ["sunshine", "strength of mind", "WiFi", "Beyonce", "stand-up comedy", "fresh air", "bubble tea"]
+    
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -63,23 +65,23 @@ class ProfileScreen: UIViewController {
 extension ProfileScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleCell", for: indexPath) as! SingleCell
         
-//        for view in cell.contentView.subviews {
-//            view.removeFromSuperview()
-//        }
-//        cell.contentView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
-//        
+        for view in cell.contentView.subviews {
+            view.removeFromSuperview()
+        }
+        cell.contentView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+        
         cell.setItem()
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: cell.contentView.frame.width, height: cell.contentView.frame.height))
-        label.text = "family"
+        label.text = items[indexPath.row]
         label.textAlignment = .center
-        label.font = UIFont(name: "OpenSans-Light", size: 48)
+        label.font = UIFont(name: "OpenSans-Light", size: 38)
         cell.contentView.addSubview(label)
         
         if indexPath.row % 3 == 0 {

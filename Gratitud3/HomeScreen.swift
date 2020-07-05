@@ -15,9 +15,18 @@ class HomeScreen: UIViewController {
     
     var pc: UIPageControl = UIPageControl()
     
-    let stuff = ["family", "friends", "chicken"]
+    var currentRow: Int = 0
 
-    
+    var allPosts: Array<PostModel> = [
+        PostModel("ayang7", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/96390146_2857801620994455_9109826609220681728_n.jpg?_nc_cat=105&_nc_sid=85a577&_nc_oc=AQkgE0hjS4zrhrq35jzqxT9hy8del5Gf7X7L1JjDHGJq35kUHUsWpDOmqmdzgg8BsTU&_nc_ht=scontent-sjc3-1.xx&oh=a4bbbfed4351c1a3b5d17794ad07c34c&oe=5F25D6B9", ["Bonchon chicken", "boba", "stationary"]),
+        PostModel("hannah.miao", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/37603507_1401991933266969_1699258202404683776_n.jpg?_nc_cat=107&_nc_sid=7aed08&_nc_oc=AQmCmid6gE6GiAixfL5pfuisydofzNOVp8HNaX8jcqi86um-z3YmwRt9GMeswrKzKk4&_nc_ht=scontent-sjc3-1.xx&oh=9dd6cb90e25469a12cf8c2cc4c7370f5&oe=5F274A59", ["Netflix Party", "Avatar", "my little sister"]),
+        PostModel("jgilbert", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/13754273_1053406748048592_4443824193192563133_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_oc=AQmm3OYHwt1nUMnGCw8ft2_x720_NWAci4wrUwCISnkJVRBRxq1Zq8saTF77wErnN-I&_nc_ht=scontent-sjc3-1.xx&oh=76abad9074116b2490c89460c923ed43&oe=5F276D13", ["Animal Crossing", "Nintendo Switch", "Logan"]),
+        PostModel("michaelcoop", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/51243258_1108108986058863_2147304844216500224_o.jpg?_nc_cat=110&_nc_sid=85a577&_nc_oc=AQlOp-LQXtOIdXeMczNep_Pvy02_hQ7e_LzLLZK9FuSqTIgOBrk2hEzMotvhBIzIiwQ&_nc_ht=scontent-sjc3-1.xx&oh=fbe71e6133168061eb8e8cb0e47a411b&oe=5F265C39", ["Emily!", "Canada", "my parents"]),
+        PostModel("cathyyyy", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/55711586_2564156523656643_5201562818339405824_o.jpg?_nc_cat=102&_nc_sid=7aed08&_nc_oc=AQnJPRwFJ-zq0377h_stnACCcfY_NRi4ius12DtyNwWG1BofWZ4vFoahDWKCWMxRkQQ&_nc_ht=scontent-sjc3-1.xx&oh=a713130a67233a9e76701264ec274b60&oe=5F25889A", ["Tycho", "being employed", "Noah Arthurs"]),
+        PostModel("djibs123", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/12308449_843394982445517_3522242450770101616_n.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_oc=AQlH9izgDS0EG9GQB7G6E1RzvktlO7XiUMZ7ekH3qK9K-yuRP6dvRRoZiH9Ea26ezNM&_nc_ht=scontent-sjc3-1.xx&oh=b33081baaa536adad1d12e6342186796&oe=5F260635", ["my brother", "you!", "chicken"]),
+        
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,12 +81,14 @@ class HomeScreen: UIViewController {
 extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return allPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostCell
-        cell.setItem()
+        currentRow = indexPath.row
+        let item = allPosts[indexPath.row]
+        cell.setItem(item: item)
 
         return cell
     }
@@ -99,21 +110,23 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICo
 class PostCell: UICollectionViewCell {
     
     var pc = UIPageControl()
+    var items: Array<String> = []
     
-    func setItem() {
+    func setItem(item: PostModel) {
+        items = item.items
         for view in self.contentView.subviews {
             view.removeFromSuperview()
         }
         self.contentView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         
         let username = UILabel(frame: CGRect(x: 43, y: 10, width: 132, height: 36))
-        username.text = "theangelaluo"
+        username.text = item.username
         username.font = UIFont(name: "OpenSans", size: 18)
         username.sizeToFit()
         self.contentView.addSubview(username)
         
         let profilePicImageView = UIImageView()
-        profilePicImageView.downloaded(from: "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/26219497_1613355575424328_6247065905212931905_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_oc=AQmbUZs_TQfhE4X1IQCPkFpo7j7JCIKMOk1xPt7HSKwvMRUxGLCXCEI1s4pR3SuNz38&_nc_ht=scontent-sjc3-1.xx&oh=0e1742d68e0d4988b1e08f70e3a44579&oe=5F287602")
+        profilePicImageView.downloaded(from: item.profilePicURL)
         profilePicImageView.frame = CGRect(x: 7, y: 10, width: 27, height: 27)
         profilePicImageView.layer.cornerRadius = profilePicImageView.frame.size.height/2
         profilePicImageView.clipsToBounds = true
@@ -199,9 +212,9 @@ extension PostCell: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: cell.contentView.frame.width, height: cell.contentView.frame.height))
-        label.text = "family"
+        label.text = items[indexPath.row]
         label.textAlignment = .center
-        label.font = UIFont(name: "OpenSans-Light", size: 48)
+        label.font = UIFont(name: "OpenSans-Light", size: 38)
         cell.contentView.addSubview(label)
         
         if indexPath.row == 0 {
