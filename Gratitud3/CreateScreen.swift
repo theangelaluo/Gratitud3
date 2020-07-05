@@ -18,9 +18,25 @@ class CreateScreen: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var item2background: UIView!
     @IBOutlet weak var item3background: UIView!
     
+    var delegate: CreatePostDelegate?
+    
+    @IBAction func post(_ sender: Any) {
+
+        let newPost = PostModel("theangelaluo", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/26219497_1613355575424328_6247065905212931905_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_oc=AQmbUZs_TQfhE4X1IQCPkFpo7j7JCIKMOk1xPt7HSKwvMRUxGLCXCEI1s4pR3SuNz38&_nc_ht=scontent-sjc3-1.xx&oh=0e1742d68e0d4988b1e08f70e3a44579&oe=5F287602", [item1.text!, item2.text!, item3.text!])
+        delegate?.addPostToDashboard(post: newPost)
+        item1.text = "Item 1"
+        item2.text = "Item 2"
+        item3.text = "Item 3"
+        tabBarController?.selectedIndex = 0
+
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        delegate = tabBarController?.viewControllers?[0] as! HomeScreen
 
         prompt.font  = UIFont(name: "OpenSans-Light", size: 18)
         prompt.sizeToFit()
@@ -66,4 +82,9 @@ class CreateScreen: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+
+
+protocol CreatePostDelegate {
+    func addPostToDashboard(post: PostModel)
 }

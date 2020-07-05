@@ -264,3 +264,12 @@ extension PostCell: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 }
 
 
+extension HomeScreen: CreatePostDelegate {
+    func addPostToDashboard(post: PostModel) {
+        allPosts.append(post)
+        overallCollectionView.reloadData()
+        //overallCollectionView.insertItems(at: [IndexPath(row: requests.count-1, section: 0)])
+    }
+}
+
+

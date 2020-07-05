@@ -21,6 +21,7 @@
 		675CA75424B153F200E2493F /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CA75324B153F200E2493F /* ProfileScreen.swift */; };
 		675CA75624B17DD800E2493F /* GratitudeSingleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CA75524B17DD700E2493F /* GratitudeSingleCollectionView.swift */; };
 		675CA75A24B1A7AC00E2493F /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CA75924B1A7AC00E2493F /* PostModel.swift */; };
+		675CA75C24B1C3E500E2493F /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675CA75B24B1C3E500E2493F /* LoginScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		675CA75324B153F200E2493F /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		675CA75524B17DD700E2493F /* GratitudeSingleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GratitudeSingleCollectionView.swift; sourceTree = "<group>"; };
 		675CA75924B1A7AC00E2493F /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		675CA75B24B1C3E500E2493F /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				675CA75124B153E300E2493F /* CreateScreen.swift */,
 				675CA75324B153F200E2493F /* ProfileScreen.swift */,
 				675CA73A24B1313300E2493F /* Main.storyboard */,
+				675CA75B24B1C3E500E2493F /* LoginScreen.swift */,
 				675CA75524B17DD700E2493F /* GratitudeSingleCollectionView.swift */,
 				675CA73D24B1313900E2493F /* Assets.xcassets */,
 				675CA73F24B1313900E2493F /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 			files = (
 				675CA75024B1533A00E2493F /* HomeScreen.swift in Sources */,
 				675CA75A24B1A7AC00E2493F /* PostModel.swift in Sources */,
+				675CA75C24B1C3E500E2493F /* LoginScreen.swift in Sources */,
 				675CA75424B153F200E2493F /* ProfileScreen.swift in Sources */,
 				675CA73924B1313300E2493F /* InitialScreen.swift in Sources */,
 				675CA75224B153E300E2493F /* CreateScreen.swift in Sources */,

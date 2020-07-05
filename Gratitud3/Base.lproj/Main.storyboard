@@ -36,7 +36,7 @@
                                     <color key="titleColor" red="0.94117647058823528" green="0.28235294117647058" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9Dg-aI-Mtw" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="pIi-Iv-XcZ"/>
+                                    <segue destination="bBh-ab-cjL" kind="presentation" id="4ta-aj-7z3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anH-Dq-EAd">
@@ -83,7 +83,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="HzO-94-OWL">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9Dg-aI-Mtw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" automaticallyAdjustsScrollViewInsets="NO" id="9Dg-aI-Mtw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Qga-ZR-snC"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zYU-bF-48x">
@@ -101,6 +101,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTy-PH-BSE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1641" y="76"/>
+        </scene>
+        <!--Login Screen-->
+        <scene sceneID="KWS-OO-pHc">
+            <objects>
+                <viewController id="bBh-ab-cjL" customClass="LoginScreen" customModule="Gratitud3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2zP-go-tqU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3a-OL-XaH">
+                                <rect key="frame" x="78" y="337" width="258" height="57"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="258" id="89S-EQ-EPh"/>
+                                    <constraint firstAttribute="height" constant="57" id="gPD-48-kLk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rgp-dB-3uV">
+                                <rect key="frame" x="87" y="57" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="GGi-na-h6A"/>
+                                    <constraint firstAttribute="width" secondItem="Rgp-dB-3uV" secondAttribute="height" multiplier="1:1" id="Ie9-CV-nBY"/>
+                                    <constraint firstAttribute="width" constant="240" id="YGn-6W-qdH"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-bp-kMk">
+                                <rect key="frame" x="153.5" y="491" width="107" height="60"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="35"/>
+                                <state key="normal" title="LOGIN">
+                                    <color key="titleColor" red="0.94117647059999998" green="0.28235294119999998" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9Dg-aI-Mtw" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="dxG-Ue-PRA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cc-N1-yog">
+                                <rect key="frame" x="132" y="551" width="150" height="40"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
+                                <state key="normal" title="Forgot Password">
+                                    <color key="titleColor" red="0.49803921569999998" green="0.37254901959999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2QH-hz-vlc">
+                                <rect key="frame" x="78" y="404" width="258" height="57"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="258" id="ChJ-Vz-XOP"/>
+                                    <constraint firstAttribute="height" constant="57" id="uji-CB-qKE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="w3a-OL-XaH" firstAttribute="top" secondItem="Rgp-dB-3uV" secondAttribute="bottom" constant="40" id="0v1-Ra-Tly"/>
+                            <constraint firstItem="5Cc-N1-yog" firstAttribute="top" secondItem="s9J-bp-kMk" secondAttribute="bottom" id="5FK-38-tjJ"/>
+                            <constraint firstItem="s9J-bp-kMk" firstAttribute="centerX" secondItem="2zP-go-tqU" secondAttribute="centerX" id="G3O-JZ-xOe"/>
+                            <constraint firstItem="s9J-bp-kMk" firstAttribute="top" secondItem="2QH-hz-vlc" secondAttribute="bottom" constant="30" id="TCp-9h-65X"/>
+                            <constraint firstItem="Rgp-dB-3uV" firstAttribute="top" secondItem="tN5-AV-xX7" secondAttribute="top" constant="57" id="iaY-Wj-m4z"/>
+                            <constraint firstItem="2QH-hz-vlc" firstAttribute="top" secondItem="w3a-OL-XaH" secondAttribute="bottom" constant="10" id="ixj-Oq-CPb"/>
+                            <constraint firstItem="2QH-hz-vlc" firstAttribute="centerX" secondItem="2zP-go-tqU" secondAttribute="centerX" id="kPE-3q-LOU"/>
+                            <constraint firstItem="w3a-OL-XaH" firstAttribute="centerX" secondItem="2zP-go-tqU" secondAttribute="centerX" id="xC7-dd-cUi"/>
+                            <constraint firstItem="Rgp-dB-3uV" firstAttribute="centerX" secondItem="2zP-go-tqU" secondAttribute="centerX" id="zGs-bo-wbq"/>
+                            <constraint firstItem="5Cc-N1-yog" firstAttribute="centerX" secondItem="2zP-go-tqU" secondAttribute="centerX" id="zJc-hp-CCq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tN5-AV-xX7"/>
+                    </view>
+                    <connections>
+                        <outlet property="password" destination="2QH-hz-vlc" id="pYu-YC-MGW"/>
+                        <outlet property="username" destination="w3a-OL-XaH" id="ns6-zS-DxA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ypj-RW-nib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-160.86956521739131" y="818.30357142857144"/>
         </scene>
         <!-- -->
         <scene sceneID="GaK-1o-LBN">
@@ -170,6 +258,9 @@
                                 <rect key="frame" x="349" y="63" width="45" height="37"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                 <state key="normal" title="POST"/>
+                                <connections>
+                                    <action selector="post:" destination="otR-YT-xzA" eventType="touchUpInside" id="uUU-HE-KXg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you grateful for today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzW-Ty-eZg">
                                 <rect key="frame" x="84" y="114" width="246" height="21"/>
